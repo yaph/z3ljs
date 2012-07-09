@@ -19,12 +19,14 @@ var z3l = {
     'uk':'co.uk',
     'us':'com'
   },
-  init: function(apikey, storename) {
+  init: function(storename, apikey) {
     z3l.storename = storename;
-    var script = document.createElement('script');
-    script.src = 'http://www.google.com/jsapi?key=' + apikey + '&callback=z3l.loadMaps';
-    script.type = 'text/javascript';
-    document.getElementsByTagName('head')[0].appendChild(script);
+    if ('undefined' !== typeof apikey) {
+      var script = document.createElement('script');
+      script.src = 'http://www.google.com/jsapi?key=' + apikey + '&callback=z3l.loadMaps';
+      script.type = 'text/javascript';
+      document.getElementsByTagName('head')[0].appendChild(script);
+    }
   },
   loadMaps: function() {
     google.load('maps', '3', {'callback': 'z3l.mapsLoaded', 'other_params':'sensor=false'});
