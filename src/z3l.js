@@ -43,10 +43,11 @@ var z3l = {
     return 'http://www.zazzle.' + z3l.tld;
   },
   tplProduct: function(href, src, name) {
-    return '<div class="z3lproduct"><a href="' + href +
-      '"><img src="' + src + '" alt="' + name + '"><br>' + name +
-      '</a> by <a href="' + z3l.getBase() + '/' + z3l.storename + '*">' +
-      z3l.storename + '</a></div>';
+    return '<div class="z3lproduct"><a href="' + href + '"><img src="' + src +
+      '" alt="' + name + '"><br>' + name + '</a> by <a class="z3lstorelink" href="' + 
+      z3l.getBase() + '/' + z3l.storename + '*">' + z3l.storename + 
+      '</a><br><a class="z3ltweetlink" href="https://twitter.com/share?url=' +  encodeURIComponent(href) +
+     '&text=' + encodeURIComponent('See my ' + name + ' design') + '">Tweet your design</a></div>';
   },
   getProductHTML: function(path, imgurl, name, params) {
     var href = z3l.getBase() + path;
